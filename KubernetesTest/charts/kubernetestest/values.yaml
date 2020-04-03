@@ -17,7 +17,6 @@ imagePullSecrets: []
 service:
   type: NodePort
   port: 80
-  nodePort: 31000
 probes:
   enabled: false
 
