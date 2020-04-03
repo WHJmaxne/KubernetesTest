@@ -1,7 +1,7 @@
 # Default values for kubernetestest.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-fullnameOverride: kubernetestest
+fullnameOverride: kubernetestest1
 replicaCount: 1
 image:
   repository: whjmaxne/kubernetestest
