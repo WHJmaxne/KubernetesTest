@@ -4,8 +4,6 @@ pipeline{
     environment{
         IMAGE_HUB="whjmanxe"
         IMAGE_NAME="kubernetestest"
-        TAG_1=sh(date "+%Y%m%d%H%M").trim()
-        TAG_2=sh(git log -1 --pretty=format:"%h").trim()
         IMAGE_TAG=sh(returnStdout: true,script: 'git describe --tags --always').trim()
     }
     stages{
