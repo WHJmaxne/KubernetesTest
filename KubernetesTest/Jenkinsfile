@@ -14,30 +14,30 @@ pipeline{
         IMAGE_TAG="${TAG_1}_${TAG_2}"
     }
     stages{
-        #stage('docker build'){
-        #    steps{
-        #        echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
-        #        sh "docker build -t ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG} -f ${PRO_NAME}/Dockerfile ."
-        #    }
-        #}
-        #stage('docker push'){
-        #    steps{
-        #        echo "start docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
-        #        sh "docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
-        #    }
-        #}
-        #stage('clear none images'){
-        #    steps{
-        #        echo "start clear none images"
-        #        sh "docker images | grep none | awk '{print $3}' | xargs docker rmi"
-        #    }
-        #}
+        //stage('docker build'){
+        //    steps{
+        //        echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
+        //        sh "docker build -t ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG} -f ${PRO_NAME}/Dockerfile ."
+        //    }
+        //}
+        //stage('docker push'){
+        //    steps{
+        //        echo "start docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
+        //        sh "docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
+        //    }
+        //}
+        //stage('clear none images'){
+        //    steps{
+        //        echo "start clear none images"
+        //        sh "docker images | grep none | awk '{print $3}' | xargs docker rmi"
+        //    }
+        //}
         stage('helm deploy'){
             steps{
                 echo "start helm deploy"
                 sh "sed 's/latest/${IMAGE_TAG}/' ${CHART_DIR}Chart.yaml"
                 sh "cat ${CHART_DIR}Chart.yaml"
-                #sh "helm install ${CHART_NAME} ${CHART_DIR} -n ${K8S_NAMESPACE}"
+                //sh "helm install ${CHART_NAME} ${CHART_DIR} -n ${K8S_NAMESPACE}"
             }
         }
     }
