@@ -8,7 +8,7 @@ pipeline{
         K8S_NAMESPACE="default"
         K8S_NAME="test-k8s"
 
-        IMAGE_HUB="whjmanxe"
+        IMAGE_HUB="whjmaxne"
         IMAGE_NAME="kubernetestest"
         TAG_1=sh(returnStdout: true,script: 'date "+%Y%m%d%H%M"').trim()
         TAG_2=sh(returnStdout: true,script: 'git log -1 --pretty=format:"%h"').trim()
@@ -24,7 +24,6 @@ pipeline{
         stage('docker push'){
             steps{
                 echo "start docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
-                sh "docker login -u whjmaxne -p whj945"
                 sh "docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
