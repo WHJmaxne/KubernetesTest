@@ -2,15 +2,14 @@
 pipeline{
     agent any
     environment{
-        HUB="whjmanxe"
-        IMAGE="test"
-        TAG="latest"
+        IMAGE_HUB="whjmanxe"
+        IMAGE_NAME="kubernetestest"
+        IMAGE_TAG=sh 'date "+%Y%m%d%H%M" + git log -1 --pretty=format:"%h"'
     }
     stages{
         stage('docker build'){
             steps{
-                echo "start docker build ${HUB}/${IMAGE}:${TAG}"
-                sh "docker build -t ${HUB}/${IMAGE}:${TAG} -f KubernetesTest/Dockerfile ."
+                echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
     }
