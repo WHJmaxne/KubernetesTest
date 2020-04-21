@@ -10,7 +10,7 @@ pipeline{
         stage('docker build'){
             steps{
                 echo "start docker build ${HUB}/${IMAGE}:${TAG}"
-                sh "docker build -t ${HUB}/${IMAGE}:${TAG} -f Dockerfile ../"
+                sh "docker build -t ${HUB}/${IMAGE}:${TAG} -f KubernetesTest/Dockerfile ."
             }
         }
     }
