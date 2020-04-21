@@ -24,6 +24,7 @@ pipeline{
         stage('docker push'){
             steps{
                 echo "start docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker login -u whjmaxne -p whj945"
                 sh "docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
