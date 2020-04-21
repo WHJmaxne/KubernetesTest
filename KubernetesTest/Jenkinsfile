@@ -36,7 +36,7 @@ pipeline{
         stage('helm deploy'){
             steps{
                 echo "start helm deploy"
-                sh "sed -i 's/latest/${IMAGE_TAG}/' ${CHART_DIR}Chart.yaml"
+                sh "sed -i 's/latest1/${IMAGE_TAG}/' ${CHART_DIR}Chart.yaml"
                 sh "cat ${CHART_DIR}Chart.yaml"
                 //sh "helm install ${CHART_NAME} ${CHART_DIR} -n ${K8S_NAMESPACE}"
             }
