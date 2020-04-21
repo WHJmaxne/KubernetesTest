@@ -11,7 +11,7 @@ pipeline{
     stages{
         stage('docker build'){
             steps{
-                echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
+                echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${TAG_1}"
             }
         }
     }
