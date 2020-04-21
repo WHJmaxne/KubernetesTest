@@ -1,12 +1,17 @@
-pipeline {
-   agent any
-
-   stages {
-      stage('Hello') {
-         steps {
-            echo 'Hello World'
-            echo 'Hello World2'
-         }
-      }
-   }
+#!groovy
+pipeline{
+    agent any
+    environment{
+        HUB="whjmanxe"
+        IMAGE="test"
+        TAG="latest"
+    }
+    stages{
+        stage('docker build'){
+            steps{
+                echo "start docker build ${HUB}/${IMAGE}:${TAG}"
+                docker build -t whjmaxne/kubetest:test -f Dockerfile ../
+            }
+        }
+    }
 }
