@@ -26,6 +26,7 @@ pipeline{
         //        sh "docker push ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
         //    }
         //}
+
         //stage('clear none images'){
         //    steps{
         //        echo "start clear none images"
