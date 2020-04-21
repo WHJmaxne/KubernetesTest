@@ -4,14 +4,14 @@ pipeline{
     environment{
         IMAGE_HUB="whjmanxe"
         IMAGE_NAME="kubernetestest"
-        TAG_1=sh 'date "+%Y%m%d%H%M"'
-        TAG_2=sh 'git log -1 --pretty=format:"%h"'
+        TAG_1=sh(returnStdout: true,script: 'date "+%Y%m%d%H%M"').trim()
+        TAG_2=sh(returnStdout: true,script: 'git log -1 --pretty=format:"%h"').trim()
         IMAGE_TAG="${TAG_1}_${TAG_2}"
     }
     stages{
         stage('docker build'){
             steps{
-                echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${TAG_TIMESTAMP}:${TAG_DATE}:${TAG_DATE}"
+                echo "start docker build ${IMAGE_HUB}/${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
     }
